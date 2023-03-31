@@ -1,0 +1,32 @@
+INSTALASI SIMRS KHANZA DI UBUNTU 16.04 x64 bit
+
+
+Konfigurasi User Previlege :
+
+1. masuk phpmyadmin
+2. masuk menu user account
+3. add user account
+4. user = root, password = no password
+5. global privileges = check all
+6. ok
+
+
+copy folder webapps di /var/www/html
+
+
+Import Database
+1. masuk ke direktori xampp = cd /opt/lampp/bin
+2. jalankan perintah = ./mysql -uroot sik </home/server/Documents/KhanzaHMSLinux/sik.sql
+
+Install JRE 8
+1. buka http://tecadmin.net/install-oracle-java-8-jdk-8-ubuntu-via-ppa
+2. $ sudo add-apt-repository ppa:webupd8team/java
+3. $ sudo apt-get update
+4. $ sudo apt-get install oracle-java8-installer
+5. selesai
+
+Menjalankan aplikasi
+1. buka folder KhanzaHMSLinux
+2. Menu Edit → Preference → Behaviour → ask each time → ok
+3. klik kanan aplikasi → properties → permissions → centang execute
+4. 2x klik aplikasi → run in terminal
