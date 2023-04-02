@@ -49,7 +49,7 @@ $jam=date("H:i");
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="index.php">
-         Hospital Management Information System Dashboard v.1
+         HaGa Hospital Management Information System Dashboard v.1
       </a>
     </div>
     <!-- Top Menu Items -->
@@ -71,16 +71,28 @@ $jam=date("H:i");
           </a>
         </li>
 	      <li>
-          <a href="kunjungan.php"><i class="fa fa-fw fa-dashboard"></i> Kunjungan Pasien</a>
+          <a href="kunjungan.php">
+            <i class="fa fa-fw fa-dashboard"></i>
+            Patient Visit
+          </a>
         </li>
 				<li>
-          <a href="jadwaldokter.php"><i class="fa fa-fw fa-bar-chart-o"></i> TT / Jadwal</a>
+          <a href="jadwaldokter.php">
+            <i class="fa fa-fw fa-bar-chart-o"></i>
+            TT / Schedule
+          </a>
         </li>
 	      <li>
-          <a href="pendaftaran.php"><i class="fa fa-fw fa-dashboard"></i> Pendaftaran</a>
+          <a href="pendaftaran.php">
+            <i class="fa fa-fw fa-dashboard"></i>
+            Pendaftaran
+          </a>
         </li>
 	      <li>
-          <a href="antrian.php"><i class="fa fa-fw fa-dashboard"></i> Antrian</a>
+          <a href="antrian.php">
+            <i class="fa fa-fw fa-dashboard"></i>
+            Antrian
+          </a>
         </li>
       </ul>
     </div>
@@ -93,45 +105,54 @@ $jam=date("H:i");
       <div class="row">
           <div class="col-lg-12 col-md-6">
             <h1 align="middle" class="page-header">
-              Service Information Dashboard RSUD HaGa 
+              HaGa Hospital Service Information Dashboard 
             </h1>
-  		<?php $dates = Date("d-m-Y ");  echo date('d F Y', strtotime($dates));?>
-			<div class "row">
-				<div class="col-lg-3 col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">
-								<?php 
-									
-									$tes=("select count(status) as jml from kamar where status = 'ISI'") ;
-									$hasil=bukaquery($tes);
-									
-									while ($data = mysqli_fetch_array ($hasil)){
-									$jml= ($data['jml']);
-								}
-								print_r ($jml);
-								?> </div>
-                                    <div>Pasien</div>
-                                </div>
-							
-                            </div>
+  		      <?php
+            $dates = Date("d-m-Y ");
+            echo date('d F Y', strtotime($dates));
+            ?>
+			      <div class "row">
+				      <div class="col-lg-3 col-md-6">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-xs-3">
+                        <i class="fa fa-tasks fa-5x"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                        <div class="huge">
+								          <?php 
+									        $tes=("select count(status) as jml from kamar where status = 'ISI'") ;
+									        $hasil=bukaquery($tes);
+									        while ($data=mysqli_fetch_array($hasil)){
+									          $jml= ($data['jml']);
+								          }
+								          print_r ($jml);
+                          ?>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Pasien IRNA</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
+                        <div>
+                         Patient
+                        </div>
+                      </div>
+							      </div>
+                  </div>
+                  <a href="#">
+                    <div class="panel-footer">
+                      <span class="pull-left">
+                        Inpatients Care
+                      </span>
+                      <span class="pull-right">
+                        <i class="fa fa-arrow-circle-right">
+                        </i>
+                      </span>
+                      <div class="clearfix">
+                      </div>
                     </div>
+                  </a>
                 </div>
-			<div class="col-lg-3 col-md-6">
-                    <div class="panel panel-green">
+              </div>
+			        <div class="col-lg-3 col-md-6">
+                <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
@@ -140,63 +161,64 @@ $jam=date("H:i");
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">
 								<?php 
-									
 									$tes=("select count(status) as jml from kamar where status = 'KOSONG'") ;
 									$hasil=bukaquery($tes);
-									
 									while ($data = mysqli_fetch_array ($hasil)){
 									$jml= ($data['jml']);
 								}
 								print_r ($jml);
-								?> </div>
-                                    <div>KOSONG</div>
-                                </div>
-							
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">BED KOSONG</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                ?>
+              </div>
+              <div>
+              Empty
+              </div>
+            </div>
+				  </div>
+        </div>
+        <a href="#">
+          <div class="panel-footer">
+              <span class="pull-left">Empty Bed</span>
+              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+              <div class="clearfix"></div>
+          </div>
+        </a>
+      </div>
+    </div>
 				
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">
-								<?php 
-									$tgl = Date("Y-m-d ");
-									$tes=("select count(no_rawat)  as h from periksa_lab where tgl_periksa='$tgl'") ;
-									$hasil=bukaquery($tes);
-									
-									while ($data = mysqli_fetch_array ($hasil)){
-									$jml= ($data['h']);
-								}
-								print_r ($jml);
-								?> </div>
-                                    <div>Pasien</div>
-                                </div>
-							
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span class="pull-left">Laboratorium</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+      <div class="col-lg-3 col-md-6">
+          <div class="panel panel-yellow">
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-xs-3">
+                          <i class="fa fa-comments fa-5x"></i>
+                      </div>
+                      <div class="col-xs-9 text-right">
+                          <div class="huge">
+			<?php 
+				$tgl = Date("Y-m-d ");
+				$tes=("select count(no_rawat)  as h from periksa_lab where tgl_periksa='$tgl'") ;
+				$hasil=bukaquery($tes);
+				
+				while ($data = mysqli_fetch_array ($hasil)){
+				$jml= ($data['h']);
+			}
+			print_r ($jml);
+			?> </div>
+                          <div>Patient</div>
+                      </div>
+		
+                  </div>
+              </div>
+              <a href="#">
+                  <div class="panel-footer">
+                      <span class="pull-left">Laboratory</span>
+                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                      <div class="clearfix"></div>
+                  </div>
+              </a>
+          </div>
+      </div>
+
 			<div class="col-lg-3 col-md-6">
                     <div class="panel panel-red">
                         <div class="panel-heading">
@@ -210,20 +232,18 @@ $jam=date("H:i");
 									$ff = Date("Y-m-d ");
 									$tes=("select count(no_rawat)  as h from periksa_radiologi where tgl_periksa='$ff'") ;
 									$hasil=bukaquery($tes);
-									
 									while ($data = mysqli_fetch_array ($hasil)){
 									$jml= ($data['h']);
 								}
 								print_r ($jml);
 								?> </div>
-                                    <div>Pasien</div>
+                                    <div>Patient</div>
                                 </div>
-							
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Radiologi</span>
+                                <span class="pull-left">Radiology</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -256,7 +276,6 @@ $jam=date("H:i");
 				$date = Date("Y-m-d "); 
 				$sql = "select poliklinik.nm_poli, count(*) as jumlah from reg_periksa INNER JOIN poliklinik on reg_periksa.kd_poli=poliklinik.kd_poli WHERE reg_periksa.tgl_registrasi='$date' group by reg_periksa.kd_poli  order by count(*) desc ";
 				$hasil=bukaquery($sql);
-
 				while ($data = mysqli_fetch_array ($hasil)){
                     
                         $jumlah[]=intval($data['jumlah']);
@@ -315,20 +334,11 @@ $jam=date("H:i");
 						data: <?=json_encode($jumlah);?>
 						}]
 					});		
-					
 					</script>
-					
-					
 					</div>
-						
-				
-					
-					
 					</div>
 				</div>	
-			
             <!-- /.row -->
-		
 		<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 
 <section id="content">
